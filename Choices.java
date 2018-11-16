@@ -5,18 +5,21 @@
  */
 package game;
 
+
 import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.*;
 import java.awt.event.*;
 import javax.swing.JPanel;
+import java.applet.Applet;
+import java.awt.FlowLayout;
+public class Game extends Applet {
 
-public class Game {
-
-   
     public static void main(String[] args) {
         
+        
+        FlowLayout experimentLayout = new FlowLayout();
         JFrame frame= new JFrame("we got some buttons");
      
         frame.pack();
@@ -28,13 +31,13 @@ public class Game {
        //adding label
         JPanel panelQue=new JPanel();
         JLabel label1=new JLabel ("Choose if you like land or sea");
-        frame.add(panelQue);
-        panelQue.add(label1,BorderLayout.SOUTH);
+        frame.add(panelQue,BorderLayout.NORTH);
+        panelQue.add(label1);
         
         
-        //adding panel
+        //adding panel for button
         JPanel panel1=new JPanel();
-        frame.add(panel1);
+        frame.add(panel1, experimentLayout.CENTER);
        
         //adding buttons
         JButton b1=new JButton("Land");
@@ -45,3 +48,8 @@ public class Game {
     }
     
 }
+       
+       
+    
+    
+
