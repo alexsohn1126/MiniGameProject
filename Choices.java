@@ -5,7 +5,7 @@
  */
 package game;
 
-import java.awt.*;
+import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.*;
