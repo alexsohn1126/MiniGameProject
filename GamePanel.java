@@ -1,6 +1,7 @@
 package game;
 
 import game.gamestate.GameStateManager;
+import game.resources.Images;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -33,6 +34,9 @@ public class GamePanel extends JPanel implements Runnable,KeyListener{
     private void start(){
         isRunning = true;
         thread = new Thread(this);
+        
+        new Images();
+        
         thread.start();
     }
     
@@ -71,8 +75,8 @@ public class GamePanel extends JPanel implements Runnable,KeyListener{
         super.paintComponent(g);
         
         g.clearRect(0, 0, WIDTH, HEIGHT);
-        
         gsm.draw(g);
+        
     }
     
     
@@ -86,5 +90,5 @@ public class GamePanel extends JPanel implements Runnable,KeyListener{
 
     public void keyReleased(KeyEvent e) {
         gsm.keyReleased(e.getKeyCode());
-    }
+    }    
 }
