@@ -50,12 +50,17 @@ public class MenuState extends GameState{
         }
         
         if(k == KeyEvent.VK_ENTER){
-            if(currentSelection == 0){
-                //play
-            } else if(currentSelection == 1){
-                //help
-            } else if(currentSelection == 2){
-                System.exit(0);
+            switch (currentSelection) {
+                case 0:
+                    gsm.states.push(new Level1State(gsm));
+                    break;
+                case 1:
+                    
+                    break;
+                case 2:
+                    System.exit(0);
+                default:
+                    break;
             }
         }
     }
@@ -63,5 +68,4 @@ public class MenuState extends GameState{
     public void keyReleased(int k) {
         
     }
-    
 }
