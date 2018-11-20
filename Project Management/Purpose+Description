@@ -1,0 +1,6 @@
+Short game description: This “choose your own adventure” game will allow the user to select their own adventure. Their decisions will determine what “themed” platform they will be playing on. For instance, they could play in fire, ice, a desert, in the sky, in water, etc.
+
+
+
+Purpose/Requirements for Application
+The purpose of this game is to allow the user to play a platform-based game. They will be asked a question and will have to choose between two options. This choice will send them to an associated platform. Then, after playing this round, they will be given another question and have to choices to select from. In total, there will be 6 options (as in, 6 different game platforms). The user will be able to jump and land on platforms while trying to pass each chosen round.  
