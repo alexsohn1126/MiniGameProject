@@ -1,0 +1,6 @@
+Algorithm (general)
+Allow player to select play, options, or quit using arrow keys
+When play is selected, present user with question and two options that dictate the level with a theme that the player plays on
+Player tries to get to end to complete the level
+When completed, will be presented with another questionnaire with two options
+Will do this for a total of 3 levels, each with 2 choices
