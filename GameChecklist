@@ -2,10 +2,10 @@
 - [x] Add death mechanic
 - [x] Finish Game Main Menu
 - [x] Finish Level 1 map file
-- [ ] Finish Level 1 choices GameState
-- [ ] Finish Level 2 map file / Level 2 Choices GameState
-- [ ] Finish Level 3 map file / Level 3 Choices GameState
-- [ ] Polish up Collision detection
+- [x] Finish Level 1 choices GameState
+- [x] Finish Level 2 map file / Level 2 Choices GameState
+- [x] Finish Level 3 map file / Level 3 Choices GameState
+- [x] Polish up Collision detection (edit: some bugs are not yet fixed, but I tried my best)
 - [ ] Add Background to each stage
 - [ ] Add Background music to each Stage
 - [ ] Add sound for button 
