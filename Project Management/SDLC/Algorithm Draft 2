@@ -1,0 +1,17 @@
+Algorithm (specific)
+Display options on home screen using java swing 
+User input action
+If user clicks options, image of options including sound and instructions
+	If they click sound, music will either play or mute (do opposite of what it is currently doing)
+	If they click instructions, image with printed instructions will appear on screen
+	If they click back, they will be sent to the main menu (home screen) again
+If user clicks quit, program will stop running
+If user clicks play, show slide with image and question with two options
+	If user clicks option 1, send to platform 1
+	Else go to option 2
+		Play game, jump and run on platforms (using arrow keys to dictate direction of main sprite)
+			If user falls through hole, restart round on that platform
+			If user passes, ask them next question, again with two options 
+
+--same idea, except with two brand new options 
+(there will be a total of three “decisions” that can be made, meaning that user plays three of six rounds because they select one of two each time they complete a level
