@@ -4,7 +4,7 @@ import game.GamePanel;
 import game.gamestate.GameState;
 import game.objects.Block;
 import game.physics.Collision;
-import java.awt.Color;
+import game.resources.Images;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 public class Player{
     //move booleans
     private boolean right = false, left = false, jumping = false, falling = false;
-    private boolean topCollision = false;
+    private boolean botCollision = false;
     
     //bounds
     private double x,y;
@@ -34,7 +34,6 @@ public class Player{
         y = GamePanel.HEIGHT/2;
         this.width = width;
         this.height = height;
-        
     }
     
     public void tick(Block[][] b){
@@ -61,6 +60,7 @@ public class Player{
                 //top
                 if(Collision.playerBlock(new Point(iX + (int)GameState.xOffset +1, iY + (int)GameState.yOffset), b[i][j]) || 
                         Collision.playerBlock(new Point(iX + width + (int)GameState.xOffset-2, iY + (int)GameState.yOffset),b[i][j])){
+                    currentJumpSpeed = jumpSpeed;
                     jumping = false;
                     falling = true;
                 }
@@ -68,11 +68,11 @@ public class Player{
                 //bottom
                 if(Collision.playerBlock(new Point(iX + (int)GameState.xOffset +2,iY + height + (int)GameState.yOffset+1),b[i][j])
                         || Collision.playerBlock(new Point(iX + width + (int)GameState.xOffset -2, iY + height +  (int)GameState.yOffset +1),b[i][j])){
-                    y = b[i][j].getY() - height - GameState.yOffset;
-                    falling = false;
-                    topCollision = true;
+                        y = b[i][j].getY() - height - GameState.yOffset;
+                        falling = false;
+                        botCollision = true;
                 } else {
-                    if(!topCollision && !jumping){
+                    if(!botCollision && !jumping){
                         falling = true;
                     }
                 }
@@ -80,7 +80,7 @@ public class Player{
             }
         }
         
-        topCollision = false;
+        botCollision = false;
         
         if(right) GameState.xOffset+= moveSpeed;
         if(left) GameState.xOffset-= moveSpeed;
@@ -108,8 +108,17 @@ public class Player{
         }
     }
     public void draw(Graphics g){
-        g.setColor(Color.BLACK);
-        g.fillRect((int)x, (int)y, width, height);
+        for(int i = GameState.heartCan; i > 0; i--){
+            if(i > GameState.heartLeft){
+                g.drawImage(Images.blocks[14],15 + i*30, 20, 28, 25,null);
+            } else {
+                
+                g.drawImage(Images.blocks[15],15 + i*30, 20, 28, 25,null);
+            }
+        }
+        g.drawImage(Images.blocks[2],(int)x, (int)y, width, height,null);
+        
+        
     }
     
     public void keyPressed(int k){
