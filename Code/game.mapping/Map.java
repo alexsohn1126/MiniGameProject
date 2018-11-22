@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 
 public class Map {
     private String path;
-    private int width, height;
+    private static int width, height;
     
     private Block[] [] blocks;
     
@@ -39,7 +39,7 @@ public class Map {
             blocks = new Block [height] [width];
             
             for(int y = 0; y<height; y++){
-                String line = br. readLine();
+                String line = br.readLine();
                 
                 String[] tokens = line.split("\\s+");
                 for(int x = 0; x< width; x++){
@@ -50,11 +50,13 @@ public class Map {
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
         }
-        
-        
     }
     
     public Block[] [] getBlocks(){
         return blocks;
+    }
+    
+    public static int getWidth(){
+        return width;
     }
 }
