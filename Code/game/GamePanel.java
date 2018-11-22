@@ -76,7 +76,6 @@ public class GamePanel extends JPanel implements Runnable,KeyListener{
         
         g.clearRect(0, 0, WIDTH, HEIGHT);
         gsm.draw(g);
-        
     }
     
     
