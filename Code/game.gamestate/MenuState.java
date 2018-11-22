@@ -1,9 +1,12 @@
 package game.gamestate;
 
 import game.GamePanel;
+import game.resources.Images;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 
 public class MenuState extends GameState{
@@ -20,19 +23,21 @@ public class MenuState extends GameState{
 
     public void draw(Graphics g) {
         
-        g.setColor(new Color(50,150,200));
-        g.fillRect(0,0, GamePanel.WIDTH, GamePanel.HEIGHT);
+        Graphics2D g2 = (Graphics2D)g;
+        
+        g2.drawImage(Images.blocks[1],0, 0, 900, 600, null);
+        g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         
         for (int i = 0; i < options.length; i++){
             if(i == currentSelection){
-                g.setColor(Color.GREEN);
+                g2.setColor(Color.GREEN);
             } else {
-                g.setColor(Color.WHITE);
+                g2.setColor(Color.WHITE);
             }
             
             //g.drawLine(GamePanel.WIDTH/2, 0, GamePanel.WIDTH/2, GamePanel.HEIGHT);
-            g.setFont(new Font("Arial", Font.PLAIN, 72));
-            g.drawString(options[i], GamePanel.WIDTH/2-80, 100+ i*150);
+            g2.setFont(new Font("Arial", Font.PLAIN, 72));
+            g2.drawString(options[i], GamePanel.WIDTH/2-80, 100+ i*150);
         }
     }
 
@@ -52,7 +57,7 @@ public class MenuState extends GameState{
         if(k == KeyEvent.VK_ENTER){
             switch (currentSelection) {
                 case 0:
-                    gsm.states.push(new Level1State(gsm));
+                    gsm.states.push(new OptionState1(gsm));
                     break;
                 case 1:
                     
