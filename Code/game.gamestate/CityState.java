@@ -2,15 +2,16 @@ package game.gamestate;
 
 import game.entities.Player;
 import game.mapping.Map;
+import game.objects.Block;
 import game.resources.Images;
 import java.awt.Graphics;
 
-public class Level1State extends GameState{
+public class CityState extends GameState{
     
     private Player player;
     private Map map;
     
-    public Level1State(GameStateManager gsm){
+    public CityState(GameStateManager gsm){
         super(gsm);
     }
 
@@ -19,17 +20,26 @@ public class Level1State extends GameState{
         map = new Map ("/Maps/map1.map");
         
         xOffset = -350;
-        yOffset = -250;
+        yOffset = -100;
     }
     
     public void tick() {
         player.tick(map.getBlocks());
+        
+        if(yOffset >= 400){
+            heartLeft -= 1;
+            if(heartLeft == 0) gsm.states.push(new DeathState(gsm));
+            yOffset = -200;
+            xOffset = -350;
+        } else if (xOffset >= Map.getWidth() * Block.getBlockSize()-(2*Block.blockSize + Block.blockSize/2) - 385){
+            gsm.states.push(new OptionState2(gsm));
+        }
     }
     
     public void draw(Graphics g) {
-        g.drawImage(Images.blocks[1], 0,0, 900,600, null);
-        player.draw(g);
+        g.drawImage(Images.blocks[8], 0,0, 900,600, null);
         map.draw(g);
+        player.draw(g);
     }
     
     public void keyPressed(int k) {
